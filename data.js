@@ -107,6 +107,36 @@ const vocabularyData = {
   ]
 };
 
+const greetingsData = [
+  ["Hola", "Hello", "/he-lo/"],
+  ["Buenos días", "Good morning", "/gud mor-ning/"],
+  ["Buenas tardes", "Good afternoon", "/gud af-ter-nun/"],
+  ["Buenas noches", "Good night", "/gud nait/"],
+  ["¿Cómo estás?", "How are you?", "/jóu ar yu/"],
+  ["Mucho gusto", "Nice to meet you", "/nais tu mit yu/"],
+  ["Adiós", "Goodbye", "/gud-bai/"],
+  ["Hasta luego", "See you later", "/si yu lei-ter/"],
+  ["Por favor", "Please", "/plis/"],
+  ["Gracias", "Thank you", "/zank yu/"]
+];
+
+const pronounsData = [
+  ["Yo", "I", "/ai/"],
+  ["Tú / Usted", "You", "/yu/"],
+  ["Él", "He", "/ji/"],
+  ["Ella", "She", "/shi/"],
+  ["Eso / Él/ella/eso", "It", "/it/"],
+  ["Nosotros", "We", "/wi/"],
+  ["Ellos", "They", "/dei/"]
+];
+
+const toBeData = [
+  { pronoun: "I", present: "am", past: "was", meaning: "Yo soy / estoy", example: "I am happy" },
+  { pronoun: "You", present: "are", past: "were", meaning: "Tú eres / estás", example: "You are kind" },
+  { pronoun: "He / She / It", present: "is", past: "was", meaning: "Él / Ella es / está", example: "She is smart" },
+  { pronoun: "We / They", present: "are", past: "were", meaning: "Nosotros / Ellos son / están", example: "They are ready" }
+];
+
 // Vowel Pronunciation Examples (30 per vowel)
 const vowelExamplesData = {
   A: [

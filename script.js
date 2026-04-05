@@ -137,6 +137,47 @@ function playBuiltSentence() {
     speak(txt, null);
 }
 
+function renderVocabSection(items, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    let htmlContent = '';
+    items.forEach(item => {
+        const safeEn = item[1].replace(/'/g, "\\'");
+        htmlContent += `
+            <div class="word-card phrase-card">
+                <div class="word-content">
+                    <span class="spanish">${item[0]}</span>
+                    <span class="english">${item[1]}</span>
+                    <span class="pronunciation">${item[2] || ''}</span>
+                </div>
+                <button class="play-btn" onclick="speak('${safeEn}', this)"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+        `;
+    });
+    container.innerHTML = htmlContent;
+}
+
+function renderToBeSection(items, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    let htmlContent = '';
+    items.forEach(item => {
+        const safeExample = item.example.replace(/'/g, "\\'");
+        htmlContent += `
+            <div class="word-card phrase-card">
+                <div class="word-content">
+                    <span class="spanish">${item.meaning}</span>
+                    <span class="english">${item.pronoun}</span>
+                    <span class="pronunciation">Presente: ${item.present} · Pasado: ${item.past}</span>
+                    <span class="example">Ejemplo: ${item.example}</span>
+                </div>
+                <button class="play-btn" onclick="speak('${safeExample}', this)"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+        `;
+    });
+    container.innerHTML = htmlContent;
+}
+
 // Initialization of Static Lists (Levels 3 & 4)
 document.addEventListener("DOMContentLoaded", () => {
     
@@ -215,6 +256,17 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             sentContainer.innerHTML = htmlSent;
         }
+    }
+
+    // Render Nivel 1 Estático
+    if (typeof greetingsData !== 'undefined') {
+        renderVocabSection(greetingsData, 'list-greetings');
+    }
+    if (typeof pronounsData !== 'undefined') {
+        renderVocabSection(pronounsData, 'list-pronouns');
+    }
+    if (typeof toBeData !== 'undefined') {
+        renderToBeSection(toBeData, 'list-tobe');
     }
 
     // Builder Event Listeners
@@ -377,7 +429,7 @@ document.addEventListener('mouseup', function() {
 // ========== NEW: Conjugations Section Functions ==========
 
 // Switch between tabs in conjugations
-function switchConjugationTab(tabName) {
+function switchConjugationTab(tabName, button) {
     // Hide all tabs
     document.getElementById('tab-present').style.display = 'none';
     document.getElementById('tab-past').style.display = 'none';
@@ -388,7 +440,12 @@ function switchConjugationTab(tabName) {
     
     // Show selected tab and activate button
     document.getElementById('tab-' + tabName).style.display = 'block';
-    event.target.classList.add('active');
+    if (button && button.classList) {
+        button.classList.add('active');
+    } else {
+        const selectedButton = Array.from(document.querySelectorAll('.tab-btn')).find(btn => btn.textContent.trim().toLowerCase().includes(tabName.toLowerCase()));
+        if (selectedButton) selectedButton.classList.add('active');
+    }
 }
 
 // Play conjugation when clicking on table row
