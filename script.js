@@ -373,3 +373,172 @@ document.addEventListener('mouseup', function() {
         }
     }
 });
+
+// ========== NEW: Conjugations Section Functions ==========
+
+// Switch between tabs in conjugations
+function switchConjugationTab(tabName) {
+    // Hide all tabs
+    document.getElementById('tab-present').style.display = 'none';
+    document.getElementById('tab-past').style.display = 'none';
+    document.getElementById('tab-negations').style.display = 'none';
+    
+    // Remove active class from all buttons
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    
+    // Show selected tab and activate button
+    document.getElementById('tab-' + tabName).style.display = 'block';
+    event.target.classList.add('active');
+}
+
+// Play conjugation when clicking on table row
+function playConjugation(text, english) {
+    speak(english, null);
+}
+
+// Update negation sentence in the builder
+function updateNegationSentence() {
+    const subject = document.getElementById('neg-subject').value;
+    const negType = document.getElementById('neg-type').value;
+    const verb = document.getElementById('neg-verb').value;
+    const complement = document.getElementById('neg-complement').value;
+    
+    // Ensure the negation type matches the subject
+    if ((subject === 'He' || subject === 'She' || subject === 'It') && negType === 'don\'t') {
+        document.getElementById('neg-type').value = 'doesn\'t';
+        updateNegationSentence();
+        return;
+    }
+    if ((subject === 'He' || subject === 'She' || subject === 'It') === false && negType === 'doesn\'t') {
+        document.getElementById('neg-type').value = 'don\'t';
+        updateNegationSentence();
+        return;
+    }
+    
+    // Construct the sentence
+    const sentence = `${subject} ${negType} ${verb} ${complement}`;
+    
+    // Create explanation
+    let subjectES, negES, verbES, complementES;
+    
+    const subjectMap = { 'I': 'Yo', 'You': 'Tú', 'He': 'Él', 'She': 'Ella', 'We': 'Nosotros', 'They': 'Ellos' };
+    const negMap = { 'don\'t': 'no', 'doesn\'t': 'no', 'didn\'t': 'no' };
+    const verbMap = { 'like': 'me gusta/gustan', 'go': 'voy', 'eat': 'como', 'sleep': 'duermo', 'work': 'trabajo', 'study': 'estudio', 'play': 'juego' };
+    const complementMap = { 'it': 'eso', 'there': 'allá', 'today': 'hoy', 'coffee': 'café', 'homework': 'tarea' };
+    
+    subjectES = subjectMap[subject];
+    negES = negMap[negType];
+    verbES = verbMap[verb];
+    complementES = complementMap[complement];
+    
+    const explanation = `${subjectES} ${negES} ${verbES} ${complementES}`;
+    
+    document.getElementById('negation-sentence').innerText = sentence;
+    document.getElementById('negation-explanation').innerText = `(${explanation})`;
+}
+
+// Play negation sentence
+function playNegationSentence() {
+    const sentence = document.getElementById('negation-sentence').innerText;
+    speak(sentence, null);
+}
+
+// Initialize conjugation tables on page load if needed
+function initializeConjugations() {
+    // This function can be used to populate tables dynamically if needed
+    // For now, the tables are static in the HTML
+}
+
+// ========== NEW: Vowel Pronunciation Functions ==========
+
+// Switch between vowels in pronunciation section
+function switchVowel(vowel) {
+    // Hide all vowel tabs
+    document.getElementById('vowel-a').style.display = 'none';
+    document.getElementById('vowel-e').style.display = 'none';
+    document.getElementById('vowel-i').style.display = 'none';
+    document.getElementById('vowel-o').style.display = 'none';
+    document.getElementById('vowel-u').style.display = 'none';
+    
+    // Remove active class from all buttons
+    document.querySelectorAll('.vowel-btn').forEach(btn => btn.classList.remove('active'));
+    
+    // Show selected vowel and activate button
+    const vowelLower = vowel.toLowerCase();
+    document.getElementById('vowel-' + vowelLower).style.display = 'block';
+    
+    // Find and activate the button
+    const buttons = document.querySelectorAll('.vowel-btn');
+    buttons.forEach(btn => {
+        if (btn.textContent.trim() === vowel) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Render examples if not already rendered
+    renderVowelExamples(vowel);
+}
+
+// Render vowel examples
+function renderVowelExamples(vowel) {
+    const containerId = 'examples-' + vowel.toLowerCase();
+    const container = document.getElementById(containerId);
+    
+    if (!container) return;
+    
+    // Check if already rendered (look for child elements)
+    if (container.querySelectorAll('.vowel-pair').length > 0) return;
+    
+    const examples = vowelExamplesData[vowel];
+    if (!examples || examples.length === 0) {
+        console.warn('No examples found for vowel:', vowel);
+        return;
+    }
+    
+    let htmlContent = '<div class="vowel-pair-grid">';
+    
+    examples.forEach((pair, index) => {
+        const shortWord = pair.short.replace(/'/g, "\\'");
+        const longWord = pair.long.replace(/'/g, "\\'");
+        
+        htmlContent += `
+            <div class="vowel-pair">
+                <div class="vowel-example short-sound">
+                    <span class="example-label">Sonido Corto</span>
+                    <span class="example-word">${pair.short}</span>
+                    <span class="example-spanish">${pair.shortES}</span>
+                    <span class="example-pron">${pair.shortPron}</span>
+                    <button class="play-btn-small" onclick="speak('${shortWord}', this)" title="Escuchar ${pair.short}">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                </div>
+                <div class="vowel-divider"></div>
+                <div class="vowel-example long-sound">
+                    <span class="example-label">Sonido Largo</span>
+                    <span class="example-word">${pair.long}</span>
+                    <span class="example-spanish">${pair.longES}</span>
+                    <span class="example-pron">${pair.longPron}</span>
+                    <button class="play-btn-small" onclick="speak('${longWord}', this)" title="Escuchar ${pair.long}">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+    
+    htmlContent += '</div>';
+    container.innerHTML = htmlContent;
+}
+
+// Initialize vowel examples on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Render all vowels initially so they're ready when user switches tabs
+    setTimeout(function() {
+        renderVowelExamples('A');
+        renderVowelExamples('E');
+        renderVowelExamples('I');
+        renderVowelExamples('O');
+        renderVowelExamples('U');
+    }, 100);
+});
+

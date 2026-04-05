@@ -539,3 +539,371 @@ body {
     color: var(--primary);
     font-size: 2.2rem;
 }
+
+/* ========== Conjugations Styles ========== */
+
+/* Conjugation Wrapper */
+.conjugation-wrapper {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Tabs Navigation */
+.conjugation-tabs {
+    display: flex;
+    gap: 0;
+    background: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+    overflow-x: auto;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 1.2rem 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    background: #f1f5f9;
+    color: var(--primary);
+}
+
+.tab-btn.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    background: white;
+}
+
+/* Conjugation Tab Content */
+.conjugation-tab {
+    padding: 2rem 1rem;
+}
+
+/* Conjugation Table */
+.conjugation-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    text-align: center;
+}
+
+.conjugation-table th {
+    background-color: var(--primary);
+    color: white;
+    padding: 1.2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: 1px solid var(--primary-light);
+}
+
+.conjugation-table td {
+    padding: 1.2rem;
+    border: 1px solid #e2e8f0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.conjugation-table td.pronoun {
+    background-color: #f8fafc;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.conjugation-word {
+    display: inline-block;
+    background: linear-gradient(135deg, #e0e7ff, #f3e8ff);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.conjugation-table tr {
+    transition: background-color 0.2s;
+}
+
+.conjugation-table tr:nth-child(even) {
+    background-color: #fbfbfb;
+}
+
+.conjugation-table tr:hover {
+    background-color: #f1f5f9;
+    cursor: pointer;
+}
+
+/* Info Box Conjugations */
+.info-box {
+    background: #eff6ff;
+    border: 2px solid var(--c-blue);
+    border-left: 5px solid var(--c-blue);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.info-box h4 {
+    font-size: 1.4rem;
+    color: var(--c-blue);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.info-box p {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Large Play Button */
+.play-btn.large-play {
+    width: 100%;
+    height: auto;
+    padding: 1rem 2rem;
+    font-size: 1.3rem;
+    border-radius: 12px;
+}
+
+.play-btn.large-play:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive for mobile */
+@media(max-width: 700px) {
+    .conjugation-table {
+        font-size: 0.95rem;
+    }
+    
+    .conjugation-table td,
+    .conjugation-table th {
+        padding: 0.8rem 0.5rem;
+    }
+    
+    .tab-btn {
+        padding: 1rem 0.8rem;
+        font-size: 1rem;
+    }
+}
+
+/* ========== Vowel Pronunciation Styles ========== */
+
+/* Vowel Selector (Button tabs) */
+.vowel-selector {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f3e8ff, #fce7f3);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.vowel-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    background: white;
+    color: var(--primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vowel-btn:hover {
+    transform: scale(1.1);
+    background: var(--primary-light);
+    color: white;
+}
+
+.vowel-btn.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+}
+
+/* Vowel Content */
+.vowel-content {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.vowel-tab {
+    padding: 2rem 1.5rem;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+/* Vowel Guide */
+.vowel-guide {
+    background: #f8fafc;
+    border-left: 5px solid var(--primary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.vowel-guide h4 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.vowel-guide p {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.vowel-guide p strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.vowel-guide em {
+    background: #fff9e6;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* Vowel Examples Grid */
+.vowel-examples {
+    display: grid;
+    gap: 2rem;
+}
+
+.vowel-pair-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media(min-width: 800px) {
+    .vowel-pair-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Individual Vowel Pair */
+.vowel-pair {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+@media(max-width: 700px) {
+    .vowel-pair {
+        grid-template-columns: 1fr;
+    }
+}
+
+.vowel-divider {
+    height: 60px;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+}
+
+@media(max-width: 700px) {
+    .vowel-divider {
+        height: 2px;
+        width: 100%;
+    }
+}
+
+/* Vowel Example Card */
+.vowel-example {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.vowel-example.short-sound {
+    background: linear-gradient(135deg, #e0e7ff, #e5e7ff);
+    border: 1px solid #c7d2fe;
+}
+
+.vowel-example.long-sound {
+    background: linear-gradient(135deg, #fce7f3, #faa6c1);
+    border: 1px solid #fbcfe8;
+}
+
+.vowel-example:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.example-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.example-word {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.example-spanish {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.example-pron {
+    font-size: 1.2rem;
+    color: var(--c-orange);
+    font-weight: 600;
+}
+
+/* Small Play Button */
+.play-btn-small {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    background: white;
+    color: var(--primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+}
+
+.play-btn-small:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+.play-btn-small:active {
+    transform: scale(0.95);
+}

@@ -30,11 +30,18 @@
 
             <h3 class="section-title">🗣️ Nivel Cero: El Secreto del Sonido</h3>
             <div class="card-grid mb-4">
-                <div class="card" onclick="openLesson('lesson-vowels')">
-                    <div class="card-icon bg-red" style="background:#e11d48;"><i class="fa-solid fa-ear-listen"></i></div>
+                <div class="card" onclick="openLesson('lesson-vowel-rules')">
+                    <div class="card-icon bg-red" style="background:#e11d48;"><i class="fa-solid fa-book-open"></i></div>
+                    <div class="card-text">
+                        <h4>Las Reglas de las Vocales</h4>
+                        <p>Magic E y técnicas clave.</p>
+                    </div>
+                </div>
+                <div class="card" onclick="openLesson('lesson-vowel-pronunciation')">
+                    <div class="card-icon bg-orange"><i class="fa-solid fa-ear-listen"></i></div>
                     <div class="card-text">
                         <h4>Pronunciación: Las Vocales</h4>
-                        <p>El paso MÁS importante en inglés.</p>
+                        <p>+150 ejemplos interactivos.</p>
                     </div>
                 </div>
             </div>
@@ -67,6 +74,10 @@
                 <div class="card" onclick="openLesson('lesson-modals')">
                     <div class="card-icon bg-red" style="background:#e11d48;"><i class="fa-solid fa-wand-magic"></i></div>
                     <div class="card-text"><h4>Would, Can, Want...</h4></div>
+                </div>
+                <div class="card" onclick="openLesson('lesson-conjugations')">
+                    <div class="card-icon bg-pink" style="background:#ec4899;"><i class="fa-solid fa-diagram-venn"></i></div>
+                    <div class="card-text"><h4>To Be, Do y Don't</h4><p>Conjugaciones Interactivas.</p></div>
                 </div>
                 <div class="card" onclick="openLesson('lesson-advanced-grammar')">
                     <div class="card-icon bg-teal" style="background:#0d9488;"><i class="fa-solid fa-scale-balanced"></i></div>
@@ -103,11 +114,11 @@
             </div>
         </section>
 
-        <!-- Vocales -->
-        <section id="lesson-vowels" class="view">
+        <!-- Vowel Rules Section -->
+        <section id="lesson-vowel-rules" class="view">
             <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
-            <h2 class="lesson-title">El Secreto de las Vocales (A, E, I, O, U)</h2>
-            <p class="lesson-intro">En inglés, las vocales tienen <strong>dos sonidos principales</strong>: uno Corto (suena como en español) y uno Largo (suena como el nombre de la letra en inglés).</p>
+            <h2 class="lesson-title">Las Reglas de las Vocales</h2>
+            <p class="lesson-intro">Aprende las <strong>reglas clave</strong> que dominan la pronunciación del inglés. La Magic E es tu arma secreta.</p>
             
             <div class="info-box mb-4">
                 <h4>💡 La Regla Mágica de la "E" (Magic E):</h4>
@@ -141,6 +152,90 @@
             </div>
         </section>
 
+        <!-- Vowel Pronunciation Section - NEW -->
+        <section id="lesson-vowel-pronunciation" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Pronunciación: Las Vocales</h2>
+            <p class="lesson-intro">🎯 +150 ejemplos de pronunciación real. Practica cada vocal con palabras cortas y largas.</p>
+
+            <div class="vowel-selector mb-4">
+                <button class="vowel-btn active" onclick="switchVowel('A')">A</button>
+                <button class="vowel-btn" onclick="switchVowel('E')">E</button>
+                <button class="vowel-btn" onclick="switchVowel('I')">I</button>
+                <button class="vowel-btn" onclick="switchVowel('O')">O</button>
+                <button class="vowel-btn" onclick="switchVowel('U')">U</button>
+            </div>
+
+            <div class="vowel-content">
+                <!-- A Content -->
+                <div id="vowel-a" class="vowel-tab active">
+                    <h3 style="color:#e11d48; margin-bottom: 1rem;">Vocal A</h3>
+                    <div class="vowel-guide mb-4">
+                        <h4>🔊 Pronunciación:</h4>
+                        <p><strong>Sonido CORTO:</strong> /æ/ (como "a" en español pero más abierta). Ejemplo: <em><strong>Cat</strong> (Gato)</em></p>
+                        <p><strong>Sonido LARGO:</strong> /eɪ/ (como decir "ei"). Ejemplo: <em><strong>Cake</strong> (Pastel)</em></p>
+                        <button class="play-btn large-play" onclick="speak('Cat. Cake.', null)" style="margin-top:1rem;"><i class="fa-solid fa-volume-high"></i> Escuchar Ejemplos</button>
+                    </div>
+                    <h4>30 Ejemplos Interactivos:</h4>
+                    <div class="vowel-examples" id="examples-a"></div>
+                </div>
+
+                <!-- E Content -->
+                <div id="vowel-e" class="vowel-tab" style="display:none;">
+                    <h3 style="color:#10b981; margin-bottom: 1rem;">Vocal E</h3>
+                    <div class="vowel-guide mb-4">
+                        <h4>🔊 Pronunciación:</h4>
+                        <p><strong>Sonido CORTO:</strong> /ɛ/ (entre "e" y "a"). Ejemplo: <em><strong>Bed</strong> (Cama)</em></p>
+                        <p><strong>Sonido LARGO:</strong> /iː/ (como "i" prolongada). Ejemplo: <em><strong>Bee</strong> (Abeja)</em></p>
+                        <button class="play-btn large-play" onclick="speak('Bed. Bee.', null)" style="margin-top:1rem;"><i class="fa-solid fa-volume-high"></i> Escuchar Ejemplos</button>
+                    </div>
+                    <h4>30 Ejemplos Interactivos:</h4>
+                    <div class="vowel-examples" id="examples-e"></div>
+                </div>
+
+                <!-- I Content -->
+                <div id="vowel-i" class="vowel-tab" style="display:none;">
+                    <h3 style="color:#3b82f6; margin-bottom: 1rem;">Vocal I</h3>
+                    <div class="vowel-guide mb-4">
+                        <h4>🔊 Pronunciación:</h4>
+                        <p><strong>Sonido CORTO:</strong> /ɪ/ (como "i" corta). Ejemplo: <em><strong>Bit</strong> (Poco)</em></p>
+                        <p><strong>Sonido LARGO:</strong> /aɪ/ (como "ai"). Ejemplo: <em><strong>Bite</strong> (Morder)</em></p>
+                        <button class="play-btn large-play" onclick="speak('Bit. Bite.', null)" style="margin-top:1rem;"><i class="fa-solid fa-volume-high"></i> Escuchar Ejemplos</button>
+                    </div>
+                    <h4>30 Ejemplos Interactivos:</h4>
+                    <div class="vowel-examples" id="examples-i"></div>
+                </div>
+
+                <!-- O Content -->
+                <div id="vowel-o" class="vowel-tab" style="display:none;">
+                    <h3 style="color:#f59e0b; margin-bottom: 1rem;">Vocal O</h3>
+                    <div class="vowel-guide mb-4">
+                        <h4>🔊 Pronunciación:</h4>
+                        <p><strong>Sonido CORTO:</strong> /ɔ/ (como "o" corta). Ejemplo: <em><strong>Hot</strong> (Caliente)</em></p>
+                        <p><strong>Sonido LARGO:</strong> /oʊ/ (como "ou"). Ejemplo: <em><strong>Home</strong> (Casa)</em></p>
+                        <button class="play-btn large-play" onclick="speak('Hot. Home.', null)" style="margin-top:1rem;"><i class="fa-solid fa-volume-high"></i> Escuchar Ejemplos</button>
+                    </div>
+                    <h4>30 Ejemplos Interactivos:</h4>
+                    <div class="vowel-examples" id="examples-o"></div>
+                </div>
+
+                <!-- U Content -->
+                <div id="vowel-u" class="vowel-tab" style="display:none;">
+                    <h3 style="color:#ec4899; margin-bottom: 1rem;">Vocal U</h3>
+                    <div class="vowel-guide mb-4">
+                        <h4>🔊 Pronunciación:</h4>
+                        <p><strong>Sonido CORTO:</strong> /ʌ/ (como "a" pero más cerrada). Ejemplo: <em><strong>Cut</strong> (Cortar)</em></p>
+                        <p><strong>Sonido LARGO:</strong> /uː/ (como "u" prolongada). Ejemplo: <em><strong>Cute</strong> (Bonito)</em></p>
+                        <button class="play-btn large-play" onclick="speak('Cut. Cute.', null)" style="margin-top:1rem;"><i class="fa-solid fa-volume-high"></i> Escuchar Ejemplos</button>
+                    </div>
+                    <h4>30 Ejemplos Interactivos:</h4>
+                    <div class="vowel-examples" id="examples-u"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vocales - OLD SECTION REMOVED, REPLACED WITH TWO NEW SECTIONS ABOVE -->
+        
         <!-- Dynamic Lesson View for Vocab -->
         <section id="lesson-dynamic" class="view">
             <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
@@ -237,6 +332,198 @@
 
             <h3 class="section-title mt-4">Diccionario de Auxiliares</h3>
             <div class="vocab-list" id="list-modals"></div>
+        </section>
+
+        <!-- Nueva Lección: Conjugaciones de To Be, Do y Don't -->
+        <section id="lesson-conjugations" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Conjugaciones: To Be, Do y Don't</h2>
+            <p class="lesson-intro">🎯 Los tres verbos más importantes del inglés. Aprende cómo se conjugan en presente, pasado y negaciones.</p>
+
+            <!-- Tabla Interactiva Principal -->
+            <div class="conjugation-wrapper mb-4">
+                <div class="conjugation-tabs">
+                    <button class="tab-btn active" onclick="switchConjugationTab('present')">Presente (PRESENT)</button>
+                    <button class="tab-btn" onclick="switchConjugationTab('past')">Pasado (PAST)</button>
+                    <button class="tab-btn" onclick="switchConjugationTab('negations')">Negaciones (NEGATIVA)</button>
+                </div>
+
+                <!-- Tabla Presente -->
+                <div id="tab-present" class="conjugation-tab active">
+                    <div class="table-responsive">
+                        <table class="conjugation-table">
+                            <thead>
+                                <tr>
+                                    <th>Pronombre</th>
+                                    <th style="background-color:#3b82f6;">TO BE (Ser/Estar)</th>
+                                    <th style="background-color:#10b981;">DO / DOES (Hacer)</th>
+                                    <th style="background-color:#f59e0b;">Ejemplo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="playConjugation('I am', 'I am')">
+                                    <td class="pronoun">I</td>
+                                    <td><span class="conjugation-word">am</span></td>
+                                    <td><span class="conjugation-word">do</span></td>
+                                    <td><em>I <strong>am</strong> happy</em></td>
+                                </tr>
+                                <tr onclick="playConjugation('You are', 'You are')">
+                                    <td class="pronoun">You</td>
+                                    <td><span class="conjugation-word">are</span></td>
+                                    <td><span class="conjugation-word">do</span></td>
+                                    <td><em>You <strong>are</strong> smart</em></td>
+                                </tr>
+                                <tr onclick="playConjugation('He is', 'He is')">
+                                    <td class="pronoun">He / She / It</td>
+                                    <td><span class="conjugation-word">is</span></td>
+                                    <td><span class="conjugation-word">does</span></td>
+                                    <td><em>He <strong>is</strong> good</em></td>
+                                </tr>
+                                <tr onclick="playConjugation('We are', 'We are')">
+                                    <td class="pronoun">We / They</td>
+                                    <td><span class="conjugation-word">are</span></td>
+                                    <td><span class="conjugation-word">do</span></td>
+                                    <td><em>They <strong>are</strong> ready</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tabla Pasado -->
+                <div id="tab-past" class="conjugation-tab" style="display:none;">
+                    <div class="table-responsive">
+                        <table class="conjugation-table">
+                            <thead>
+                                <tr>
+                                    <th>Pronombre</th>
+                                    <th style="background-color:#8b5cf6;">TO BE (Ser/Estar)</th>
+                                    <th style="background-color:#ec4899;">DID (Hizo)</th>
+                                    <th style="background-color:#f59e0b;">Ejemplo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="playConjugation('I was', 'I was')">
+                                    <td class="pronoun">I / He / She / It</td>
+                                    <td><span class="conjugation-word">was</span></td>
+                                    <td><span class="conjugation-word">did</span></td>
+                                    <td><em>I <strong>was</strong> tired</em></td>
+                                </tr>
+                                <tr onclick="playConjugation('You were', 'You were')">
+                                    <td class="pronoun">You / We / They</td>
+                                    <td><span class="conjugation-word">were</span></td>
+                                    <td><span class="conjugation-word">did</span></td>
+                                    <td><em>You <strong>were</strong> late</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Tabla Negaciones -->
+                <div id="tab-negations" class="conjugation-tab" style="display:none;">
+                    <div class="table-responsive">
+                        <table class="conjugation-table">
+                            <thead>
+                                <tr>
+                                    <th>Pronombre</th>
+                                    <th style="background-color:#ef4444;">Presente (DON'T/DOESN'T)</th>
+                                    <th style="background-color:#dc2626;">Pasado (DIDN'T)</th>
+                                    <th style="background-color:#f59e0b;">Ejemplo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="playConjugation('I do not', 'I do not')">
+                                    <td class="pronoun">I / You / We / They</td>
+                                    <td><span class="conjugation-word">don't</span></td>
+                                    <td><span class="conjugation-word">didn't</span></td>
+                                    <td><em>I <strong>don't</strong> like it</em></td>
+                                </tr>
+                                <tr onclick="playConjugation('He does not', 'He does not')">
+                                    <td class="pronoun">He / She / It</td>
+                                    <td><span class="conjugation-word">doesn't</span></td>
+                                    <td><span class="conjugation-word">didn't</span></td>
+                                    <td><em>He <strong>doesn't</strong> care</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info boxes con explicaciones -->
+            <div class="info-box mb-4" style="background:#f0fdf4; border-left: 5px solid #10b981;">
+                <h4 style="color:#15803d;"><i class="fa-solid fa-lightbulb"></i> Consejo: TO BE</h4>
+                <p><strong>Am</strong> = I / <strong>Is</strong> = He, She, It / <strong>Are</strong> = You, We, They</p>
+                <p style="margin-top:0.5rem; font-size:1.1rem;">Ejemplos: <em>"I am Bety" (Yo soy Bety)</em>, <em>"He is happy" (Él está feliz)</em></p>
+            </div>
+
+            <div class="info-box mb-4" style="background:#fef3c7; border-left: 5px solid #f59e0b;">
+                <h4 style="color:#b45309;"><i class="fa-solid fa-lightbulb"></i> Consejo: DO / DOES</h4>
+                <p><strong>Do</strong> = I, You, We, They / <strong>Does</strong> = He, She, It</p>
+                <p style="margin-top:0.5rem; font-size:1.1rem;">Ejemplos: <em>"I do my homework" (Yo hago mi tarea)</em>, <em>"She does the dishes" (Ella lava los platos)</em></p>
+            </div>
+
+            <div class="info-box mb-4" style="background:#fce7f3; border-left: 5px solid #ec4899;">
+                <h4 style="color:#be185d;"><i class="fa-solid fa-lightbulb"></i> Consejo: DON'T / DOESN'T</h4>
+                <p><strong>Don't</strong> = I, You, We, They / <strong>Doesn't</strong> = He, She, It / <strong>Didn't</strong> = Todos (Pasado)</p>
+                <p style="margin-top:0.5rem; font-size:1.1rem;">Ejemplos: <em>"I don't like coffee" (No me gusta el café)</em>, <em>"He didn't go" (Él no fue)</em></p>
+            </div>
+
+            <!-- Ejercicio interactivo -->
+            <div class="builder-container mb-4" style="border-color: #ec4899; background: #fdf2f8;">
+                <h3 style="color:#ec4899; margin-bottom: 1rem;">🎮 Construcción de Oraciones con Negativas</h3>
+                
+                <div class="builder-columns" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:1rem;">
+                    <div class="build-col">
+                        <label style="color:#ec4899;">Pronombre</label>
+                        <select id="neg-subject" class="build-select" onchange="updateNegationSentence()">
+                            <option value="I">Yo (I)</option>
+                            <option value="You">Tú (You)</option>
+                            <option value="He">Él (He)</option>
+                            <option value="She">Ella (She)</option>
+                            <option value="We">Nosotros (We)</option>
+                            <option value="They">Ellos (They)</option>
+                        </select>
+                    </div>
+                    <div class="build-col">
+                        <label style="color:#ec4899;">Negativa</label>
+                        <select id="neg-type" class="build-select" onchange="updateNegationSentence()">
+                            <option value="don't">Don't (Presente)</option>
+                            <option value="doesn't">Doesn't (3ª persona)</option>
+                            <option value="didn't">Didn't (Pasado)</option>
+                        </select>
+                    </div>
+                    <div class="build-col">
+                        <label style="color:#ec4899;">Verbo</label>
+                        <select id="neg-verb" class="build-select" onchange="updateNegationSentence()">
+                            <option value="like">Like (Gustar)</option>
+                            <option value="go">Go (Ir)</option>
+                            <option value="eat">Eat (Comer)</option>
+                            <option value="sleep">Sleep (Dormir)</option>
+                            <option value="work">Work (Trabajar)</option>
+                            <option value="study">Study (Estudiar)</option>
+                            <option value="play">Play (Jugar)</option>
+                        </select>
+                    </div>
+                    <div class="build-col">
+                        <label style="color:#ec4899;">Complemento</label>
+                        <select id="neg-complement" class="build-select" onchange="updateNegationSentence()">
+                            <option value="it">It (Eso)</option>
+                            <option value="there">There (Allí)</option>
+                            <option value="today">Today (Hoy)</option>
+                            <option value="coffee">Coffee (Café)</option>
+                            <option value="homework">Homework (Tarea)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="builder-result" style="border: 2px solid #fbcfe8; margin-top: 1.5rem;">
+                    <h3 id="negation-sentence" style="color: #ec4899; font-size: 2rem;">I don't like it</h3>
+                    <p id="negation-explanation" style="margin-top:0.5rem; font-size:1.1rem; color:#be185d;">(Yo no me gusta eso)</p>
+                </div>
+                <button class="play-btn large-play" style="background:#ec4899; color:white; width: 100%; border-radius: 12px; margin-top: 1rem;" onclick="playNegationSentence()"><i class="fa-solid fa-volume-high"></i> Escuchar Mi Oración</button>
+            </div>
         </section>
         <section id="lesson-transversal-tenses" class="view">
             <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
