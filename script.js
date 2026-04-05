@@ -93,15 +93,42 @@ function updateBuilderSentence() {
     const v = document.getElementById('sel-verb');
     const o = document.getElementById('sel-object');
     if(s && v && o) {
-        // Adjust for 3rd person singular grammar if needed purely for visual aid
-        let verbVal = v.value;
-        if ((s.value === 'He' || s.value === 'She') && verbVal === 'want') verbVal = 'wants';
         
-        const finalTxt = `${s.value} ${verbVal} ${o.value}.`;
-        
-        // Capitalize first letter
+        // 1. Filtrar los verbos bloqueados según el sujeto seleccionado
+        Array.from(v.options).forEach(opt => {
+            const allowed = opt.getAttribute('data-allowed');
+            if (allowed && (allowed === 'all' || allowed.includes(s.value))) {
+                opt.disabled = false;
+                opt.style.display = '';
+            } else {
+                opt.disabled = true;
+                opt.style.display = 'none';
+            }
+        });
+
+        // 2. Si el verbo actual quedó deshabilitado por las reglas, saltar automáticamente al próximo habilitado
+        if (v.options[v.selectedIndex].disabled) {
+            v.value = Array.from(v.options).find(opt => !opt.disabled).value;
+        }
+
+        // 3. Imprimir oración final
+        const finalTxt = `${s.value} ${v.value} ${o.value}.`;
         const formattedTxt = finalTxt.charAt(0).toUpperCase() + finalTxt.slice(1);
         document.getElementById('builder-final-sentence').innerText = formattedTxt;
+        
+        // 4. Mostrar la explicación gramatical según la configuración (Reglas de Oro de Bety)
+        let expl = "";
+        const esAuxiliar = ["would like", "can see", "didn't buy"].includes(v.value);
+        if (["He", "She"].includes(s.value) && !esAuxiliar) {
+            expl = "💡 Nota Gramatical: Cuando hablamos de Él (He) o Ella (She), en presente SIEMPRE se le agrega una 'S' al verbo o cambia su forma (por ejemplo: wants, needs, has). ¡A esto se le llama usar la 3ra persona!";
+        } else if (esAuxiliar) {
+            expl = "💡 Nota Gramatical: Estás usando una palabra Modificadora (como can, would, didn't). Cuando usas estas palabras, el verbo JAMÁS recibe una 'S', sin importar quién sea el sujeto.";
+        } else {
+            expl = `💡 Nota Gramatical: Como el sujeto es "${s.value}", el verbo se mantiene en su forma original básica.`;
+        }
+        
+        const expNode = document.getElementById('builder-explanation');
+        if (expNode) expNode.innerText = expl;
     }
 }
 

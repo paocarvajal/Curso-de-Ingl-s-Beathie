@@ -70,7 +70,7 @@
                 </div>
                 <div class="card" onclick="openLesson('lesson-advanced-grammar')">
                     <div class="card-icon bg-teal" style="background:#0d9488;"><i class="fa-solid fa-scale-balanced"></i></div>
-                    <div class="card-text"><h4>Formato de Preguntas y Negativas</h4><p>Uso de Do/Does y Did.</p></div>
+                    <div class="card-text"><h4>Preguntas y Negativas</h4><p>Uso de Do/Does y Did.</p></div>
                 </div>
                 <div class="card" onclick="openLesson('lesson-transversal-tenses')">
                     <div class="card-icon bg-blue" style="background:#0284c7;"><i class="fa-solid fa-table"></i></div>
@@ -230,13 +230,18 @@
                     <div class="build-col">
                         <label>Verbo/Auxiliar (Verb)</label>
                         <select id="sel-verb" class="build-select">
-                            <option value="want">Quiero/Quieres (Want)</option>
-                            <option value="needs">Necesita (Needs - Solo He/She)</option>
-                            <option value="would like">Me gustaría (Would like)</option>
-                            <option value="can see">Puedo ver (Can see)</option>
-                            <option value="did not buy">No compré (Didn't buy)</option>
-                            <option value="have">Tengo/Tienes (Have)</option>
-                            <option value="has">Tiene (Has - Solo He/She)</option>
+                            <option value="want" data-allowed="I,You,We,They">quiero/es (want)</option>
+                            <option value="wants" data-allowed="He,She">quiere (wants)</option>
+                            
+                            <option value="need" data-allowed="I,You,We,They">necesito/as (need)</option>
+                            <option value="needs" data-allowed="He,She">necesita (needs)</option>
+
+                            <option value="have" data-allowed="I,You,We,They">tengo/tienes (have)</option>
+                            <option value="has" data-allowed="He,She">tiene (has)</option>
+                            
+                            <option value="would like" data-allowed="all">me/le gustaría (would like)</option>
+                            <option value="can see" data-allowed="all">puedo ver (can see)</option>
+                            <option value="didn't buy" data-allowed="all">no compré (didn't buy)</option>
                         </select>
                     </div>
 
@@ -247,14 +252,16 @@
                             <option value="a red car">un carro rojo (a red car)</option>
                             <option value="some water">algo de agua (some water)</option>
                             <option value="the big house">la casa grande (the big house)</option>
-                            <option value="a yellow bird">un pájaro amarillo (a yellow bird)</option>
+                            <option value="a yellow bird">un pájaro (a yellow bird)</option>
                             <option value="breakfast">el desayuno (breakfast)</option>
+                            <option value="a book">un libro (a book)</option>
                         </select>
                     </div>
                 </div>
                 
                 <div class="builder-result">
                     <h3 id="builder-final-sentence">I want an apple</h3>
+                    <p id="builder-explanation" style="margin-top:1rem; font-size:1.1rem; color:#475569; background:#f8fafc; padding:10px; border-radius:8px; text-align:left;"></p>
                 </div>
 
                 <button class="play-btn large-play" onclick="playBuiltSentence()"><i class="fa-solid fa-volume-high"></i> Escuchar Mi Oración</button>
