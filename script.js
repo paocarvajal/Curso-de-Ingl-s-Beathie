@@ -198,4 +198,75 @@ document.addEventListener("DOMContentLoaded", () => {
     if(document.getElementById('sel-subject')) {
         updateBuilderSentence();
     }
+    
+    // Initialize Book if available
+    if (typeof bookParagraphs !== 'undefined') {
+        updateBookUI();
+    }
+});
+
+// Book Reader Logic
+let currentParagraphIndex = 0;
+
+function updateBookUI() {
+    if (typeof bookParagraphs !== 'undefined' && bookParagraphs.length > 0) {
+        document.getElementById('book-paragraph').innerText = bookParagraphs[currentParagraphIndex];
+        document.getElementById('book-counter').innerText = `Párrafo ${currentParagraphIndex + 1} de ${bookParagraphs.length}`;
+        document.getElementById('translation-box').style.display = 'none';
+        window.scrollTo(0, 0);
+    }
+}
+
+function nextParagraph() {
+    if (currentParagraphIndex < bookParagraphs.length - 1) {
+        currentParagraphIndex++;
+        updateBookUI();
+    }
+}
+
+function prevParagraph() {
+    if (currentParagraphIndex > 0) {
+        currentParagraphIndex--;
+        updateBookUI();
+    }
+}
+
+function playBookCurrent() {
+    const text = document.getElementById('book-paragraph').innerText;
+    speak(text, null);
+}
+
+// Translations using free MyMemory API
+async function translateText(text) {
+    if (!text || text.trim() === '') return;
+    const box = document.getElementById('translation-box');
+    const p = document.getElementById('translation-text');
+    
+    box.style.display = 'block';
+    p.innerText = "Traduciendo... ⏳";
+    
+    try {
+        const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|es`;
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data && data.responseData && data.responseData.translatedText) {
+            p.innerText = data.responseData.translatedText;
+        } else {
+            p.innerText = "Hubo un error traduciendo. Intenta de nuevo.";
+        }
+    } catch (e) {
+        p.innerText = "Error de conexión con el traductor.";
+    }
+}
+
+// Auto-translate whatever the user highlights in the book view
+document.addEventListener('mouseup', function() {
+    const bookView = document.getElementById('lesson-book');
+    if (bookView && bookView.classList.contains('active')) {
+        let selectedText = window.getSelection().toString().trim();
+        // Solo traducir si seleccionó al menos una palabra o frase (> 2 caracteres)
+        if (selectedText.length > 2) {
+            translateText(selectedText);
+        }
+    }
 });

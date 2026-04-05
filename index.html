@@ -88,9 +88,17 @@
                     <div class="card-icon bg-blue" style="background:#3b82f6;"><i class="fa-solid fa-puzzle-piece"></i></div>
                     <div class="card-text"><h4>Estructura y Enunciados</h4></div>
                 </div>
+                <div class="card" onclick="openLesson('lesson-structures')">
+                    <div class="card-icon bg-blue" style="background:#3b82f6;"><i class="fa-solid fa-puzzle-piece"></i></div>
+                    <div class="card-text"><h4>Estructura y Enunciados</h4></div>
+                </div>
                 <div class="card" onclick="openLesson('lesson-story')">
-                    <div class="card-icon bg-yellow" style="background:#eab308;"><i class="fa-solid fa-book-open"></i></div>
-                    <div class="card-text"><h4>Historia con Audio</h4></div>
+                    <div class="card-icon bg-yellow" style="background:#eab308;"><i class="fa-solid fa-star"></i></div>
+                    <div class="card-text"><h4>Historia Corta</h4></div>
+                </div>
+                <div class="card" onclick="openLesson('lesson-book')">
+                    <div class="card-icon bg-red" style="background:#dc2626;"><i class="fa-solid fa-book-open"></i></div>
+                    <div class="card-text"><h4>Libro: As Crow Sits</h4><p>Completo con traductor interactivo.</p></div>
                 </div>
             </div>
         </section>
@@ -273,10 +281,40 @@
             </div>
         </section>
 
+        <!-- Libro Interactivo -->
+        <section id="lesson-book" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">As Crow Sits (Libro Interactivo)</h2>
+            <p class="lesson-intro">Lee el libro por párrafos. <strong>💡 Truco Mágico:</strong> Selecciona con el dedo o el mouse cualquier palabra o frase que no entiendas, ¡y te la traduciré automáticamente en la caja verde abajo!</p>
+            
+            <div id="book-container">
+                <div class="story-box mb-4">
+                    <h4 id="book-counter" style="color:var(--text-muted); margin-bottom: 10px;">Párrafo 1</h4>
+                    <p id="book-paragraph" style="font-size: 1.5rem; line-height: 1.8; user-select: text;">Cargando libro...</p>
+                    
+                    <div class="mt-4" style="display:flex; flex-direction:column; gap:10px;">
+                        <button class="play-btn large-play" onclick="playBookCurrent()"><i class="fa-solid fa-volume-high"></i> Escuchar este párrafo</button>
+                        <button class="play-btn" style="background:#0d9488; color:white; border-color:#0f766e;" onclick="translateText(document.getElementById('book-paragraph').innerText)"><i class="fa-solid fa-language"></i> Traducir Todo el Párrafo</button>
+                    </div>
+                    
+                    <div class="mt-4" style="display:flex; justify-content:space-between; gap:10px;">
+                        <button class="play-btn" onclick="prevParagraph()"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+                        <button class="play-btn" onclick="nextParagraph()">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <div id="translation-box" style="display:none; background:#f0fdf4; padding:1.5rem; border-radius:10px; margin-top:1rem; border: 2px solid #22c55e;">
+                    <h4 style="color:#166534; margin-bottom:5px;"><i class="fa-solid fa-language"></i> Traducción:</h4>
+                    <p id="translation-text" style="font-size:1.3rem; color:#166534;">Cargando traducción...</p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <div class="celebration" id="celebration"><h2>¡Excelente, Bety! 🎉</h2><i class="fa-solid fa-star fa-beat text-yellow"></i></div>
 
+    <script src="book.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
