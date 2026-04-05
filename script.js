@@ -232,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     // Modal Event Listeners
-    document.querySelectorAll('#modal-subject, #modal-aux, #modal-verb').forEach(el => {
+    document.querySelectorAll('#modal-subject, #modal-aux, #modal-verb, #modal-complement').forEach(el => {
         el.addEventListener('change', updateModalSentence);
     });
     if(document.getElementById('modal-subject')) updateModalSentence();
@@ -243,41 +243,61 @@ function updateModalSentence() {
     const s = document.getElementById('modal-subject');
     const a = document.getElementById('modal-aux');
     const v = document.getElementById('modal-verb');
+    const c = document.getElementById('modal-complement');
     
-    if (s && a && v) {
-        let auxVal = a.value;
-        if (s.value === 'She' && auxVal === 'want to') {
-            auxVal = 'wants to';
+    if (s && a && v && c) {
+        let subj = s.value;
+        let aux = a.value;
+        let verb = v.value;
+        let comp = c.value;
+        
+        if (subj === 'He' || subj === 'She') {
+            if (aux === 'want to') aux = 'wants to';
+            if (aux === 'need to') aux = 'needs to';
+            if (aux === 'have to') aux = 'has to';
         }
         
-        const engTxt = `${s.value} ${auxVal} ${v.value}.`;
+        const engTxt = `${subj} ${aux} ${verb} ${comp}.`;
         document.getElementById('modal-final-sentence').innerText = engTxt;
         
-        let subjTrans = s.value === 'I' ? 'Yo' : (s.value === 'She' ? 'Ella' : 'Nosotros');
-        let auxTrans = a.options[a.selectedIndex].getAttribute('data-trans');
-        let verbTrans = v.options[v.selectedIndex].getAttribute('data-trans');
+        const subjTransMap = {
+            'I': 'Yo', 'You': 'Tú/Ustedes', 'He': 'Él', 'She': 'Ella', 'We': 'Nosotros', 'They': 'Ellos'
+        };
+        const subjES = subjTransMap[subj];
+        
+        const conjugations = {
+            'can': { 'I': 'puedo', 'You': 'puedes', 'He': 'puede', 'She': 'puede', 'We': 'podemos', 'They': 'pueden' },
+            'could': { 'I': 'podría', 'You': 'podrías', 'He': 'podría', 'She': 'podría', 'We': 'podríamos', 'They': 'podrían' },
+            'should': { 'I': 'debería', 'You': 'deberías', 'He': 'debería', 'She': 'debería', 'We': 'deberíamos', 'They': 'deberían' },
+            'must': { 'I': 'debo', 'You': 'debes', 'He': 'debe', 'She': 'debe', 'We': 'debemos', 'They': 'deben' },
+            'want to': { 'I': 'quiero', 'You': 'quieres', 'He': 'quiere', 'She': 'quiere', 'We': 'queremos', 'They': 'quieren' },
+            'need to': { 'I': 'necesito', 'You': 'necesitas', 'He': 'necesita', 'She': 'necesita', 'We': 'necesitamos', 'They': 'necesitan' },
+            'have to': { 'I': 'tengo que', 'You': 'tienes que', 'He': 'tiene que', 'She': 'tiene que', 'We': 'tenemos que', 'They': 'tienen que' }
+        };
+
+        const verbES = v.options[v.selectedIndex].getAttribute('data-trans');
+        const compES = c.options[c.selectedIndex].getAttribute('data-trans');
         
         let transTxt = "";
         
         if (a.value === 'would') {
-            let vBase = verbTrans; 
-            if (vBase.endsWith('r')) transTxt = `${subjTrans} ${vBase}ía.`;
+            const wouldEndings = { 'I': 'ía', 'You': 'ías', 'He': 'ía', 'She': 'ía', 'We': 'íamos', 'They': 'ían' };
+            let vBase = verbES; 
+            if (vBase.endsWith('r')) {
+                transTxt = `${subjES} ${vBase}${wouldEndings[subj]} ${compES}.`;
+            } else {
+                transTxt = `${subjES} lo haría ${compES}.`;
+            }
+        } else if (a.value === 'might') {
+            const canMap = conjugations['can'][subj];
+            transTxt = `${subjES} tal vez ${canMap} ${verbES} ${compES}.`;
         } else {
-            if (s.value === 'She') {
-                if(a.value === 'can') auxTrans = 'puede';
-                if(a.value === 'could') auxTrans = 'podría';
-                if(a.value === 'should') auxTrans = 'debería';
-                if(a.value === 'must') auxTrans = 'debe';
-                if(a.value === 'want to') auxTrans = 'quiere';
+            let auxES = "";
+            let baseAux = a.value;
+            if (conjugations[baseAux] && conjugations[baseAux][subj]) {
+                auxES = conjugations[baseAux][subj];
             }
-            if (s.value === 'We') {
-                if(a.value === 'can') auxTrans = 'podemos';
-                if(a.value === 'could') auxTrans = 'podríamos';
-                if(a.value === 'should') auxTrans = 'deberíamos';
-                if(a.value === 'must') auxTrans = 'debemos';
-                if(a.value === 'want to') auxTrans = 'queremos';
-            }
-            transTxt = `${subjTrans} ${auxTrans} ${verbTrans}.`;
+            transTxt = `${subjES} ${auxES} ${verbES} ${compES}.`;
         }
         document.getElementById('modal-translation').innerText = `(${transTxt})`;
     }
