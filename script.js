@@ -87,6 +87,29 @@ function showCelebration() {
     setTimeout(() => el.classList.remove('show'), 2000);
 }
 
+// Sentence Builder Logic
+function updateBuilderSentence() {
+    const s = document.getElementById('sel-subject');
+    const v = document.getElementById('sel-verb');
+    const o = document.getElementById('sel-object');
+    if(s && v && o) {
+        // Adjust for 3rd person singular grammar if needed purely for visual aid
+        let verbVal = v.value;
+        if ((s.value === 'He' || s.value === 'She') && verbVal === 'want') verbVal = 'wants';
+        
+        const finalTxt = `${s.value} ${verbVal} ${o.value}.`;
+        
+        // Capitalize first letter
+        const formattedTxt = finalTxt.charAt(0).toUpperCase() + finalTxt.slice(1);
+        document.getElementById('builder-final-sentence').innerText = formattedTxt;
+    }
+}
+
+function playBuiltSentence() {
+    const txt = document.getElementById('builder-final-sentence').innerText;
+    speak(txt, null);
+}
+
 // Initialization of Static Lists (Levels 3 & 4)
 document.addEventListener("DOMContentLoaded", () => {
     
@@ -165,5 +188,14 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             sentContainer.innerHTML = htmlSent;
         }
+    }
+
+    // Builder Event Listeners
+    document.querySelectorAll('.build-select').forEach(el => {
+        el.addEventListener('change', updateBuilderSentence);
+    });
+    // Trigger initial state
+    if(document.getElementById('sel-subject')) {
+        updateBuilderSentence();
     }
 });

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inglés para Bety - Curso Extendido</title>
-    <meta name="description" content="Curso de inglés masivo con cientos de palabras y verbos para Bety.">
+    <title>Inglés para Bety - Curso Maestro</title>
+    <meta name="description" content="Curso de inglés masivo, estructurado, fonético y con constructor de oraciones para Bety.">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,7 +16,7 @@
                 <i class="fa-solid fa-heart" style="color: #ff4757;"></i> 
                 Inglés para Bety
             </h1>
-            <p class="subtitle">Edición Extendida (+500 Palabras y Verbos)</p>
+            <p class="subtitle">Nivel Maestro: Fonética, Gramática Avanzada y Práctica Interactiva</p>
         </div>
     </header>
 
@@ -24,8 +24,19 @@
         <!-- Home View -->
         <section id="view-home" class="view active">
             <div class="welcome-box">
-                <h2>¡Hola, Bety! 👋</h2>
-                <p>Bienvenida a tu diccionario y curso masivo. Ahora tienes acceso a <strong>cientos</strong> de palabras, frutas, animales y verbos (¡más de 500 palabras y 50 verbos!).</p>
+                <h2>¡Hola de nuevo, Bety! 👋</h2>
+                <p>Este material ahora es muy profesional. Incluimos el <strong>secreto de las vocales</strong> y un <strong>constructor de oraciones</strong> para que tú misma armes tus propias frases.</p>
+            </div>
+
+            <h3 class="section-title">🗣️ Nivel Cero: El Secreto del Sonido</h3>
+            <div class="card-grid mb-4">
+                <div class="card" onclick="openLesson('lesson-vowels')">
+                    <div class="card-icon bg-red" style="background:#e11d48;"><i class="fa-solid fa-ear-listen"></i></div>
+                    <div class="card-text">
+                        <h4>Pronunciación: Las Vocales</h4>
+                        <p>El paso MÁS importante en inglés.</p>
+                    </div>
+                </div>
             </div>
 
             <h3 class="section-title">📘 Nivel 1: Fundamentos</h3>
@@ -37,7 +48,7 @@
 
             <h3 class="section-title">🍎 Nivel 2: Diccionario Masivo (+500)</h3>
             <div class="card-grid mb-4">
-                <div class="card" onclick="openLessonDynamic('Animals', 'Animales')"><div class="card-icon bg-teal"><i class="fa-solid fa-dog"></i></div><div class="card-text"><h4>Animales</h4><p>Mascotas y salvajes</p></div></div>
+                <div class="card" onclick="openLessonDynamic('Animals', 'Animales')"><div class="card-icon bg-teal"><i class="fa-solid fa-dog"></i></div><div class="card-text"><h4>Animales</h4></div></div>
                 <div class="card" onclick="openLessonDynamic('Fruits', 'Frutas y Vegetales')"><div class="card-icon bg-red"><i class="fa-solid fa-apple-whole"></i></div><div class="card-text"><h4>Frutas y Verdes</h4></div></div>
                 <div class="card" onclick="openLessonDynamic('Objects', 'Cosas Comunes')"><div class="card-icon bg-orange"><i class="fa-solid fa-box"></i></div><div class="card-text"><h4>Cosas Comunes</h4></div></div>
                 <div class="card" onclick="openLessonDynamic('House', 'La Casa y Muebles')"><div class="card-icon" style="background:#d97706;"><i class="fa-solid fa-house"></i></div><div class="card-text"><h4>Tu Entorno</h4></div></div>
@@ -47,7 +58,7 @@
                 <div class="card" onclick="openLessonDynamic('Adjectives', 'Descriptivos (Adjetivos)')"><div class="card-icon bg-blue"><i class="fa-solid fa-pen"></i></div><div class="card-text"><h4>Colores y Formas</h4></div></div>
             </div>
 
-            <h3 class="section-title">🚀 Nivel 3: Gramática y Modales</h3>
+            <h3 class="section-title">🚀 Nivel 3: Mega Gramática</h3>
             <div class="card-grid mb-4">
                 <div class="card" onclick="openLesson('lesson-verbs-50')">
                     <div class="card-icon bg-purple" style="background:#8b5cf6;"><i class="fa-solid fa-person-running"></i></div>
@@ -55,7 +66,11 @@
                 </div>
                 <div class="card" onclick="openLesson('lesson-modals')">
                     <div class="card-icon bg-red" style="background:#e11d48;"><i class="fa-solid fa-wand-magic"></i></div>
-                    <div class="card-text"><h4>Would, Can, Want...</h4><p>Auxiliares poderosos.</p></div>
+                    <div class="card-text"><h4>Would, Can, Want...</h4></div>
+                </div>
+                <div class="card" onclick="openLesson('lesson-advanced-grammar')">
+                    <div class="card-icon bg-teal" style="background:#0d9488;"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <div class="card-text"><h4>Formato de Preguntas y Negativas</h4><p>Uso de Do/Does y Did.</p></div>
                 </div>
                 <div class="card" onclick="openLesson('lesson-transversal-tenses')">
                     <div class="card-icon bg-blue" style="background:#0284c7;"><i class="fa-solid fa-table"></i></div>
@@ -63,11 +78,15 @@
                 </div>
             </div>
 
-            <h3 class="section-title">📚 Nivel 4: Estructuras e Historias</h3>
+            <h3 class="section-title">📚 Nivel 4: Práctica Constructiva</h3>
             <div class="card-grid mb-4">
+                <div class="card" onclick="openLesson('lesson-builder')">
+                    <div class="card-icon bg-green" style="background:#16a34a;"><i class="fa-solid fa-hammer"></i></div>
+                    <div class="card-text"><h4>Armador de Oraciones</h4><p>Construye tus propias frases.</p></div>
+                </div>
                 <div class="card" onclick="openLesson('lesson-structures')">
-                    <div class="card-icon bg-green" style="background:#16a34a;"><i class="fa-solid fa-puzzle-piece"></i></div>
-                    <div class="card-text"><h4>Estructura de Frases</h4><p>Sujeto + Verbo + Objeto.</p></div>
+                    <div class="card-icon bg-blue" style="background:#3b82f6;"><i class="fa-solid fa-puzzle-piece"></i></div>
+                    <div class="card-text"><h4>Estructura y Enunciados</h4></div>
                 </div>
                 <div class="card" onclick="openLesson('lesson-story')">
                     <div class="card-icon bg-yellow" style="background:#eab308;"><i class="fa-solid fa-book-open"></i></div>
@@ -76,16 +95,52 @@
             </div>
         </section>
 
+        <!-- Vocales -->
+        <section id="lesson-vowels" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">El Secreto de las Vocales (A, E, I, O, U)</h2>
+            <p class="lesson-intro">En inglés, las vocales tienen <strong>dos sonidos principales</strong>: uno Corto (suena como en español) y uno Largo (suena como el nombre de la letra en inglés).</p>
+            
+            <div class="info-box mb-4">
+                <h4>💡 La Regla Mágica de la "E" (Magic E):</h4>
+                <p>Si una palabra termina en "E", la "E" <strong>NO SE PRONUNCIA</strong>, pero hace que la vocal anterior suene LARGA (como dice el abecedario).</p>
+            </div>
+
+            <div class="vocab-list">
+                <!-- A -->
+                <h3 class="mt-4" style="color:var(--primary);">Vocal A (Sonido /ei/)</h3>
+                <div class="word-card phrase-card"><div class="word-content"><span class="spanish">Sombrero (A corta)</span><span class="english">Hat</span><span class="pronunciation">/jat/</span></div><button class="play-btn" onclick="speak('Hat', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card phrase-card"><div class="word-content"><span class="spanish">Odiar (A larga por Magic E)</span><span class="english">Hate</span><span class="pronunciation">/jeit/</span></div><button class="play-btn" onclick="speak('Hate', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                
+                <!-- I -->
+                <h3 class="mt-4" style="color:var(--primary);">Vocal I (Sonido /ai/)</h3>
+                <div class="word-card phrase-card"><div class="word-content"><span class="spanish">Un poco (I corta)</span><span class="english">Bit</span><span class="pronunciation">/bit/</span></div><button class="play-btn" onclick="speak('Bit', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card phrase-card"><div class="word-content"><span class="spanish">Morder (I larga por Magic E)</span><span class="english">Bite</span><span class="pronunciation">/bait/</span></div><button class="play-btn" onclick="speak('Bite', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                
+                <!-- O -->
+                <h3 class="mt-4" style="color:var(--primary);">Vocal O (Sonido /ou/)</h3>
+                <div class="word-card phrase-card"><div class="word-content"><span class="spanish">No (O corta)</span><span class="english">Not</span><span class="pronunciation">/not/</span></div><button class="play-btn" onclick="speak('Not', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card phrase-card"><div class="word-content"><span class="spanish">Nota (O larga por Magic E)</span><span class="english">Note</span><span class="pronunciation">/nout/</span></div><button class="play-btn" onclick="speak('Note', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+
+                <!-- E -->
+                <h3 class="mt-4" style="color:var(--primary);">Vocal E (Sonido /i/)</h3>
+                <div class="word-card phrase-card"><div class="word-content"><span class="spanish">E cortas y largas</span><span class="english">Bed (Cama) vs Bee (Abeja)</span><span class="pronunciation">/bed/ vs /bii/</span></div><button class="play-btn" onclick="speak('Bed. Bee.', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+
+                <!-- U -->
+                <h3 class="mt-4" style="color:var(--primary);">Vocal U (Sonido /iu/ o /u/)</h3>
+                <div class="word-card phrase-card"><div class="word-content"><span class="spanish">Cortar (U corta)</span><span class="english">Cut</span><span class="pronunciation">/cot/</span></div><button class="play-btn" onclick="speak('Cut', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card phrase-card"><div class="word-content"><span class="spanish">Lindo (U larga por Magic E)</span><span class="english">Cute</span><span class="pronunciation">/kiut/</span></div><button class="play-btn" onclick="speak('Cute', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+            </div>
+        </section>
+
         <!-- Dynamic Lesson View for Vocab -->
         <section id="lesson-dynamic" class="view">
             <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
             <h2 class="lesson-title" id="dynamic-title">Vocabulario</h2>
-            <div class="vocab-list" id="dynamic-list">
-                <!-- Se inyecta con Javascript -->
-            </div>
+            <div class="vocab-list" id="dynamic-list"></div>
         </section>
 
-        <!-- Nivel 1 Estático (Ya los tenías perfectos) -->
+        <!-- Nivel 1 Estático -->
         <section id="lesson-greetings" class="view">
             <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
             <h2 class="lesson-title">Saludos</h2><div class="vocab-list" id="list-greetings"></div>
@@ -99,59 +154,111 @@
             <h2 class="lesson-title">To Be</h2><div class="vocab-list" id="list-tobe"></div>
         </section>
 
-        <!-- Estructuras Formales y Modales -->
+        <!-- Nivel 3 -->
         <section id="lesson-verbs-50" class="view">
             <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver al inicio</button>
-            <h2 class="lesson-title">Los 50 Verbos Más Usados</h2>
-            <p class="lesson-intro">Los verbos Regulares (terminan en -ed en pasado) e Irregulares (cambian por completo).</p>
-            <div id="verbs-container"></div>
+            <h2 class="lesson-title">Los 50 Verbos Más Usados</h2><div id="verbs-container"></div>
         </section>
-
         <section id="lesson-modals" class="view">
             <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver al inicio</button>
-            <h2 class="lesson-title">Would, Want, Can (Los Auxiliares)</h2>
-            <p class="lesson-intro">Estas palabras cambian el tono de cualquier oración.</p>
-            <div class="vocab-list" id="list-modals"></div>
-            <div class="info-box mt-4">
-                <h4>💡 El secreto de "Would":</h4>
-                <p><strong>Would</strong> no significa nada por sí solo. Hace que el verbo que le sigue termine en "-ría".</p>
-                <p>I like = Me gusta. <strong>I WOULD like</strong> = Me gusta<strong>ría</strong>.</p>
-            </div>
+            <h2 class="lesson-title">Would, Want, Can</h2><div class="vocab-list" id="list-modals"></div>
         </section>
-
         <section id="lesson-transversal-tenses" class="view">
             <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
             <h2 class="lesson-title">Tiempos Transversales</h2>
-            <!-- Igual que en la versión anterior -->
-            <div class="table-responsive mb-4">
-                <table class="grammar-table">
-                    <thead><tr><th class="th-present">Persona</th><th class="th-present">TO BE (Es)</th><th class="th-present">DO / DOES (Hace)</th><th class="th-present">DON'T / DOESN'T</th></tr></thead>
-                    <tbody>
-                        <tr><td class="pronoun">I</td><td>am</td><td>do</td><td>don't</td></tr><tr><td class="pronoun">You</td><td>are</td><td>do</td><td>don't</td></tr>
-                        <tr><td class="pronoun">He/She/It</td><td>is</td><td>does</td><td>doesn't</td></tr>
-                        <tr><td class="pronoun">We/They</td><td>are</td><td>do</td><td>don't</td></tr>
-                    </tbody>
-                </table>
+            <div class="table-responsive mb-4"><table class="grammar-table"><thead><tr><th class="th-present">Persona</th><th class="th-present">TO BE (Es)</th><th class="th-present">DO / DOES (Hace)</th><th class="th-present">DON'T/DOESN'T</th></tr></thead><tbody><tr><td class="pronoun">I</td><td>am</td><td>do</td><td>don't</td></tr><tr><td class="pronoun">You</td><td>are</td><td>do</td><td>don't</td></tr><tr><td class="pronoun">He/She/It</td><td>is</td><td>does</td><td>doesn't</td></tr><tr><td class="pronoun">We/They</td><td>are</td><td>do</td><td>don't</td></tr></tbody></table></div>
+            <div class="table-responsive"><table class="grammar-table"><thead><tr><th class="th-past">Persona</th><th class="th-past">TO BE (Pasado)</th><th class="th-past">DID (Hizo)</th><th class="th-past">DIDN'T</th></tr></thead><tbody><tr><td class="pronoun">I/He/She/It</td><td>was</td><td>did</td><td>didn't</td></tr><tr><td class="pronoun">You/We/They</td><td>were</td><td>did</td><td>didn't</td></tr></tbody></table></div>
+        </section>
+
+        <!-- Advanced Grammar -->
+        <section id="lesson-advanced-grammar" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Gramática: Preguntas y Negaciones</h2>
+            <p class="lesson-intro">En el inglés, <strong>para negar y preguntar necesitamos un auxiliar (Do/Does o Did)</strong>.</p>
+            
+            <div class="info-box mb-4">
+                <h4>🔴 Negaciones (Presente vs Pasado)</h4>
+                <p>Estructura: Sujeto + <strong>Auxiliar Negativo</strong> + Verbo Normal.</p>
+                <ul style="margin-left: 20px; font-size: 1.2rem; margin-top:10px;">
+                    <li><strong>I don't play:</strong> Yo no juego (Presente).</li>
+                    <li><strong>She doesn't play:</strong> Ella no juega (Presente).</li>
+                    <li><strong>I didn't play:</strong> Yo no jugué (Pasado).</li>
+                </ul>
             </div>
-            <div class="table-responsive">
-                <table class="grammar-table">
-                    <thead><tr><th class="th-past">Persona</th><th class="th-past">TO BE (Pasado)</th><th class="th-past">DID (Hizo)</th><th class="th-past">DIDN'T</th></tr></thead>
-                    <tbody>
-                        <tr><td class="pronoun">I/He/She/It</td><td>was</td><td>did</td><td>didn't</td></tr>
-                        <tr><td class="pronoun">You/We/They</td><td>were</td><td>did</td><td>didn't</td></tr>
-                    </tbody>
-                </table>
+
+            <div class="info-box mb-4" style="background:#fcf8ff; border-color:#9333ea;">
+                <h4 style="color:#9333ea;">🔵 Preguntas (Presente vs Pasado)</h4>
+                <p>Estructura: <strong>Auxiliar</strong> + Sujeto + Verbo Normal + ?</p>
+                <ul style="margin-left: 20px; font-size: 1.2rem; margin-top:10px;">
+                    <li><strong>Do you play?:</strong> ¿Tú juegas? (Presente).</li>
+                    <li><strong>Does she play?:</strong> ¿Ella juega? (Presente).</li>
+                    <li><strong>Did you play?:</strong> ¿Tú jugaste? (Pasado).</li>
+                </ul>
+            </div>
+            
+            <p>💡 <em>Fíjate que en negaciones y preguntas, el verbo JAMÁS cambia al pasado o lleva "s". El auxiliar (Did/Does/Didn't) hace TODO el trabajo duro.</em></p>
+        </section>
+
+        <!-- Builder -->
+        <section id="lesson-builder" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Armador de Oraciones Interactivas</h2>
+            <p class="lesson-intro">Combina las piezas para generar más de 100 oraciones posibles. ¡Haz clic en "Escuchar" al terminar!</p>
+            
+            <div class="builder-container">
+                <div class="builder-columns">
+                    <div class="build-col">
+                        <label>Sujeto (Subject)</label>
+                        <select id="sel-subject" class="build-select">
+                            <option value="I">Yo (I)</option>
+                            <option value="You">Tú (You)</option>
+                            <option value="He">Él (He)</option>
+                            <option value="She">Ella (She)</option>
+                            <option value="We">Nosotros (We)</option>
+                            <option value="They">Ellos (They)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="build-col">
+                        <label>Verbo/Auxiliar (Verb)</label>
+                        <select id="sel-verb" class="build-select">
+                            <option value="want">Quiero/Quieres (Want)</option>
+                            <option value="needs">Necesita (Needs - Solo He/She)</option>
+                            <option value="would like">Me gustaría (Would like)</option>
+                            <option value="can see">Puedo ver (Can see)</option>
+                            <option value="did not buy">No compré (Didn't buy)</option>
+                            <option value="have">Tengo/Tienes (Have)</option>
+                            <option value="has">Tiene (Has - Solo He/She)</option>
+                        </select>
+                    </div>
+
+                    <div class="build-col">
+                        <label>Objeto/Complemento</label>
+                        <select id="sel-object" class="build-select">
+                            <option value="an apple">una manzana (an apple)</option>
+                            <option value="a red car">un carro rojo (a red car)</option>
+                            <option value="some water">algo de agua (some water)</option>
+                            <option value="the big house">la casa grande (the big house)</option>
+                            <option value="a yellow bird">un pájaro amarillo (a yellow bird)</option>
+                            <option value="breakfast">el desayuno (breakfast)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="builder-result">
+                    <h3 id="builder-final-sentence">I want an apple</h3>
+                </div>
+
+                <button class="play-btn large-play" onclick="playBuiltSentence()"><i class="fa-solid fa-volume-high"></i> Escuchar Mi Oración</button>
             </div>
         </section>
 
+        <!-- Nivel 4 -->
         <section id="lesson-structures" class="view">
             <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
-            <h2 class="lesson-title">Estructura de Frases (Fórmula de Oro)</h2>
-            <p class="lesson-intro">En inglés el orden SIEMPRE es: <strong>1. Quién (Sujeto) + 2. Qué hace (Verbo) + 3. Resto (Objeto)</strong></p>
-            <div class="vocab-list" id="list-sentences"></div>
+            <h2 class="lesson-title">Estructura y Enunciados Comunes</h2><div class="vocab-list" id="list-sentences"></div>
         </section>
 
-        <!-- Historia -->
         <section id="lesson-story" class="view">
             <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
             <h2 class="lesson-title">Lectura: Un Buen Día</h2>
