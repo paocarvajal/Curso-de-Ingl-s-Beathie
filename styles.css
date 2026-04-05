@@ -286,6 +286,33 @@ body {
     transform: scale(0.95);
 }
 
+/* Action Buttons (Rectangular for text) */
+.action-btn {
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4);
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    transform: scale(1.02);
+    background: var(--primary-light);
+}
+
+.action-btn:active {
+    transform: scale(0.95);
+}
+
 /* Info Box */
 .info-box {
     background: #eff6ff;

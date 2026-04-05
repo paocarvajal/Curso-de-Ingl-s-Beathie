@@ -293,13 +293,13 @@
                     <p id="book-paragraph" style="font-size: 1.5rem; line-height: 1.8; user-select: text;">Cargando libro...</p>
                     
                     <div class="mt-4" style="display:flex; flex-direction:column; gap:10px;">
-                        <button class="play-btn large-play" onclick="playBookCurrent()"><i class="fa-solid fa-volume-high"></i> Escuchar este párrafo</button>
-                        <button class="play-btn" style="background:#0d9488; color:white; border-color:#0f766e;" onclick="translateText(document.getElementById('book-paragraph').innerText)"><i class="fa-solid fa-language"></i> Traducir Todo el Párrafo</button>
+                        <button class="action-btn" style="background:var(--c-yellow); color:#451a03; padding:1rem; font-size:1.4rem;" onclick="playBookCurrent()"><i class="fa-solid fa-volume-high"></i> Escuchar este párrafo</button>
+                        <button class="action-btn" style="background:#0d9488; color:white; padding:1rem; font-size:1.3rem;" onclick="translateText(document.getElementById('book-paragraph').innerText)"><i class="fa-solid fa-language"></i> Traducir Todo el Párrafo</button>
                     </div>
                     
                     <div class="mt-4" style="display:flex; justify-content:space-between; gap:10px;">
-                        <button class="play-btn" onclick="prevParagraph()"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
-                        <button class="play-btn" onclick="nextParagraph()">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="action-btn" style="flex:1;" onclick="prevParagraph()"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+                        <button class="action-btn" style="flex:1;" onclick="nextParagraph()">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
                 
