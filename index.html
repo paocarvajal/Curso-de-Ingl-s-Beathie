@@ -169,7 +169,54 @@
         </section>
         <section id="lesson-modals" class="view">
             <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver al inicio</button>
-            <h2 class="lesson-title">Would, Want, Can</h2><div class="vocab-list" id="list-modals"></div>
+            <h2 class="lesson-title">Modales: Would, Could, Should...</h2>
+            <p class="lesson-intro">Estas palabras mágicas cambian la intención de la oración. ¡Nunca cambian el verbo que les sigue!</p>
+            
+            <div class="builder-container mb-4" style="border-color: #e11d48; background: #fff1f2;">
+                <h3 style="color:#e11d48; margin-bottom: 1rem;">🎮 Juego: El Poder de los Modales</h3>
+                <p style="margin-bottom: 1rem; color: #881337;">Escoge un verbo modal y mira cómo transforma el significado de lo que quieres decir sin tener que aprender conjugaciones difíciles.</p>
+                
+                <div class="builder-columns">
+                    <div class="build-col">
+                        <label style="color:#e11d48;">Sujeto</label>
+                        <select id="modal-subject" class="build-select">
+                            <option value="I">Yo (I)</option>
+                            <option value="She">Ella (She)</option>
+                            <option value="We">Nosotros (We)</option>
+                        </select>
+                    </div>
+                    <div class="build-col">
+                        <label style="color:#e11d48;">El Modificador</label>
+                        <select id="modal-aux" class="build-select" style="border-color:#e11d48; border-width: 2px;">
+                            <option value="can" data-trans="puedo">Can (Poder / Habilidad)</option>
+                            <option value="could" data-trans="podría">Could (Podría / Posibilidad)</option>
+                            <option value="should" data-trans="debería">Should (Debería / Consejo)</option>
+                            <option value="must" data-trans="debo">Must (Debo / Obligación)</option>
+                            <option value="would" data-trans="terminación 'ría'">Would (Dar terminación -ría)</option>
+                            <option value="want to" data-trans="quiero">Want to (Querer)</option>
+                        </select>
+                    </div>
+                    <div class="build-col">
+                        <label style="color:#e11d48;">Acción (Verbo Normal)</label>
+                        <select id="modal-verb" class="build-select">
+                            <option value="eat" data-trans="comer">Eat (Comer)</option>
+                            <option value="go" data-trans="ir">Go (Ir)</option>
+                            <option value="sleep" data-trans="dormir">Sleep (Dormir)</option>
+                            <option value="play" data-trans="jugar">Play (Jugar)</option>
+                            <option value="work" data-trans="trabajar">Work (Trabajar)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="builder-result" style="border: 2px solid #fda4af;">
+                    <h3 id="modal-final-sentence" style="color: #e11d48; font-size: 2.2rem;">I can eat.</h3>
+                    <p id="modal-translation" style="margin-top:0.5rem; font-size:1.3rem; color:#881337; font-weight:600;">(Yo puedo comer)</p>
+                </div>
+                <button class="play-btn large-play" style="background:#e11d48; color:white; width: 100%; border-radius: 12px;" onclick="playModalSentence()"><i class="fa-solid fa-volume-high"></i> Escuchar Mi Oración</button>
+            </div>
+
+            <h3 class="section-title mt-4">Diccionario de Auxiliares</h3>
+            <div class="vocab-list" id="list-modals"></div>
         </section>
         <section id="lesson-transversal-tenses" class="view">
             <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>

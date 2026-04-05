@@ -230,7 +230,63 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof bookParagraphs !== 'undefined') {
         updateBookUI();
     }
+    
+    // Modal Event Listeners
+    document.querySelectorAll('#modal-subject, #modal-aux, #modal-verb').forEach(el => {
+        el.addEventListener('change', updateModalSentence);
+    });
+    if(document.getElementById('modal-subject')) updateModalSentence();
 });
+
+// Modal Logic
+function updateModalSentence() {
+    const s = document.getElementById('modal-subject');
+    const a = document.getElementById('modal-aux');
+    const v = document.getElementById('modal-verb');
+    
+    if (s && a && v) {
+        let auxVal = a.value;
+        if (s.value === 'She' && auxVal === 'want to') {
+            auxVal = 'wants to';
+        }
+        
+        const engTxt = `${s.value} ${auxVal} ${v.value}.`;
+        document.getElementById('modal-final-sentence').innerText = engTxt;
+        
+        let subjTrans = s.value === 'I' ? 'Yo' : (s.value === 'She' ? 'Ella' : 'Nosotros');
+        let auxTrans = a.options[a.selectedIndex].getAttribute('data-trans');
+        let verbTrans = v.options[v.selectedIndex].getAttribute('data-trans');
+        
+        let transTxt = "";
+        
+        if (a.value === 'would') {
+            let vBase = verbTrans; 
+            if (vBase.endsWith('r')) transTxt = `${subjTrans} ${vBase}ía.`;
+        } else {
+            if (s.value === 'She') {
+                if(a.value === 'can') auxTrans = 'puede';
+                if(a.value === 'could') auxTrans = 'podría';
+                if(a.value === 'should') auxTrans = 'debería';
+                if(a.value === 'must') auxTrans = 'debe';
+                if(a.value === 'want to') auxTrans = 'quiere';
+            }
+            if (s.value === 'We') {
+                if(a.value === 'can') auxTrans = 'podemos';
+                if(a.value === 'could') auxTrans = 'podríamos';
+                if(a.value === 'should') auxTrans = 'deberíamos';
+                if(a.value === 'must') auxTrans = 'debemos';
+                if(a.value === 'want to') auxTrans = 'queremos';
+            }
+            transTxt = `${subjTrans} ${auxTrans} ${verbTrans}.`;
+        }
+        document.getElementById('modal-translation').innerText = `(${transTxt})`;
+    }
+}
+
+function playModalSentence() {
+    const txt = document.getElementById('modal-final-sentence').innerText;
+    speak(txt, null);
+}
 
 // Book Reader Logic
 let currentParagraphIndex = 0;
