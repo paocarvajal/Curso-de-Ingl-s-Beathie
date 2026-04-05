@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inglés para Bety - Curso Completo</title>
+    <meta name="description" content="Curso de inglés muy básico, estructurado y enriquecido para Bety.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Modern, highly readable font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-content">
+            <h1 class="logo" onclick="goHome()">
+                <i class="fa-solid fa-heart" style="color: #ff4757;"></i> 
+                Inglés para Bety
+            </h1>
+            <p class="subtitle">Curso Completo: Desde cero hasta intermedio</p>
+        </div>
+    </header>
+
+    <main class="container" id="main-content">
+        <!-- Home View -->
+        <section id="view-home" class="view active">
+            <div class="welcome-box">
+                <h2>¡Hola, Bety! 👋</h2>
+                <p>Aquí tienes tu curso completo y enriquecido. Tómate tu tiempo y recuerda usar la bocina (<i class="fa-solid fa-volume-high text-primary"></i>) para escuchar la pronunciación.</p>
+            </div>
+
+            <!-- Nivel 1: Fundamentos -->
+            <h3 class="section-title">📘 Nivel 1: Fundamentos</h3>
+            <div class="card-grid mb-4">
+                <div class="card" onclick="openLesson('lesson-greetings')">
+                    <div class="card-icon bg-blue"><i class="fa-regular fa-hand"></i></div>
+                    <div class="card-text">
+                        <h4>1. Saludos</h4>
+                        <p>Aprende a decir hola, adiós y cómo estás.</p>
+                    </div>
+                </div>
+                <div class="card" onclick="openLesson('lesson-pronouns')">
+                    <div class="card-icon bg-purple"><i class="fa-solid fa-users"></i></div>
+                    <div class="card-text">
+                        <h4>2. Pronombres</h4>
+                        <p>Yo, Tú, Él, Ella, Nosotros.</p>
+                    </div>
+                </div>
+                <div class="card" onclick="openLesson('lesson-tobe')">
+                    <div class="card-icon bg-green"><i class="fa-solid fa-star"></i></div>
+                    <div class="card-text">
+                        <h4>3. Verbo "To Be"</h4>
+                        <p>El verbo Ser o Estar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nivel 2: Vocabulario -->
+            <h3 class="section-title">🍎 Nivel 2: Súper Vocabulario</h3>
+            <div class="card-grid mb-4">
+                <div class="card" onclick="openLesson('lesson-vocab-house')">
+                    <div class="card-icon bg-orange"><i class="fa-solid fa-house"></i></div>
+                    <div class="card-text"><h4>La Casa</h4></div>
+                </div>
+                <div class="card" onclick="openLesson('lesson-vocab-food')">
+                    <div class="card-icon bg-red"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="card-text"><h4>La Comida</h4></div>
+                </div>
+                <div class="card" onclick="openLesson('lesson-vocab-family')">
+                    <div class="card-icon bg-pink"><i class="fa-solid fa-child-reaching"></i></div>
+                    <div class="card-text"><h4>La Familia</h4></div>
+                </div>
+                <div class="card" onclick="openLesson('lesson-vocab-colors')">
+                    <div class="card-icon bg-teal"><i class="fa-solid fa-palette"></i></div>
+                    <div class="card-text"><h4>Los Colores</h4></div>
+                </div>
+            </div>
+
+            <!-- Nivel 3: Intermedio y Gramática -->
+            <h3 class="section-title">🚀 Nivel 3: Gramática Intermedia</h3>
+            <div class="card-grid mb-4">
+                <div class="card" onclick="openLesson('lesson-verbs')">
+                    <div class="card-icon bg-purple" style="background:#8b5cf6;"><i class="fa-solid fa-person-running"></i></div>
+                    <div class="card-text">
+                        <h4>Verbos Principales</h4>
+                        <p>Acciones diarias esenciales.</p>
+                    </div>
+                </div>
+                <div class="card" onclick="openLesson('lesson-transversal-tenses')">
+                    <div class="card-icon bg-blue" style="background:#0284c7;"><i class="fa-solid fa-table"></i></div>
+                    <div class="card-text">
+                        <h4>Tiempos Verbales</h4>
+                        <p>Estructuras de Presente y Pasado.</p>
+                    </div>
+                </div>
+                <div class="card" onclick="openLesson('lesson-connectors')">
+                    <div class="card-icon bg-orange" style="background:#ea580c;"><i class="fa-solid fa-link"></i></div>
+                    <div class="card-text">
+                        <h4>Conectores (Conexiones)</h4>
+                        <p>Y, Pero, Porque... une tus oraciones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nivel 4: Historias y Práctica -->
+            <h3 class="section-title">📚 Nivel 4: Práctica, Enunciados e Historias</h3>
+            <div class="card-grid mb-4">
+                <div class="card" onclick="openLesson('lesson-sentences')">
+                    <div class="card-icon bg-green" style="background:#16a34a;"><i class="fa-solid fa-comments"></i></div>
+                    <div class="card-text">
+                        <h4>Enunciados Prácticos</h4>
+                        <p>Frases útiles que puedes usar diario.</p>
+                    </div>
+                </div>
+                <div class="card" onclick="openLesson('lesson-story')">
+                    <div class="card-icon bg-yellow" style="background:#eab308;"><i class="fa-solid fa-book-open"></i></div>
+                    <div class="card-text">
+                        <h4>Historia: Un Buen Día</h4>
+                        <p>Lectura sencilla con audio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== Nivel 1 =================== -->
+        
+        <section id="lesson-greetings" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Saludos</h2>
+            <div class="vocab-list">
+                <div class="word-card"><div class="word-content"><span class="spanish">Hola</span><span class="english">Hello</span><span class="pronunciation">/jelóu/</span></div><button class="play-btn" onclick="speak('Hello', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Buenos días</span><span class="english">Good morning</span><span class="pronunciation">/gud mór-ning/</span></div><button class="play-btn" onclick="speak('Good morning', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Buenas tardes</span><span class="english">Good afternoon</span><span class="pronunciation">/gud áfter-nun/</span></div><button class="play-btn" onclick="speak('Good afternoon', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">¿Cómo estás?</span><span class="english">How are you?</span><span class="pronunciation">/jau ar yu/</span></div><button class="play-btn" onclick="speak('How are you?', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Adiós</span><span class="english">Goodbye</span><span class="pronunciation">/gud-bái/</span></div><button class="play-btn" onclick="speak('Goodbye', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+            </div>
+        </section>
+
+        <section id="lesson-pronouns" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Pronombres Personales</h2>
+            <div class="vocab-list">
+                <div class="word-card"><div class="word-content"><span class="spanish">Yo</span><span class="english">I</span><span class="pronunciation">/ai/</span></div><button class="play-btn" onclick="speak('I', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Tú / Usted / Ustedes</span><span class="english">You</span><span class="pronunciation">/yu/</span></div><button class="play-btn" onclick="speak('You', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Él</span><span class="english">He</span><span class="pronunciation">/ji/</span></div><button class="play-btn" onclick="speak('He', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Ella</span><span class="english">She</span><span class="pronunciation">/shi/</span></div><button class="play-btn" onclick="speak('She', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Eso (Cosa o Animal)</span><span class="english">It</span><span class="pronunciation">/it/</span></div><button class="play-btn" onclick="speak('It', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Nosotros</span><span class="english">We</span><span class="pronunciation">/güi/</span></div><button class="play-btn" onclick="speak('We', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Ellos / Ellas</span><span class="english">They</span><span class="pronunciation">/déi/</span></div><button class="play-btn" onclick="speak('They', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+            </div>
+        </section>
+
+        <section id="lesson-tobe" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Verbo "To Be" (Ser o Estar)</h2>
+            <div class="vocab-list">
+                <div class="word-card"><div class="word-content"><span class="spanish">Yo soy / estoy</span><span class="english">I am</span><span class="pronunciation">/ai am/</span></div><button class="play-btn" onclick="speak('I am', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Tú eres / estás</span><span class="english">You are</span><span class="pronunciation">/yu ar/</span></div><button class="play-btn" onclick="speak('You are', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Él es / está</span><span class="english">He is</span><span class="pronunciation">/ji is/</span></div><button class="play-btn" onclick="speak('He is', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Ella es / está</span><span class="english">She is</span><span class="pronunciation">/shi is/</span></div><button class="play-btn" onclick="speak('She is', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Nosotros somos / estamos</span><span class="english">We are</span><span class="pronunciation">/güi ar/</span></div><button class="play-btn" onclick="speak('We are', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Ellos son / están</span><span class="english">They are</span><span class="pronunciation">/déi ar/</span></div><button class="play-btn" onclick="speak('They are', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+            </div>
+        </section>
+
+        <!-- =================== Nivel 2: Vocabulario =================== -->
+
+        <section id="lesson-vocab-house" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Vocabulario: La Casa</h2>
+            <div class="vocab-list">
+                <div class="word-card"><div class="word-content"><span class="spanish">Casa</span><span class="english">House</span></div><button class="play-btn" onclick="speak('House', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Cocina</span><span class="english">Kitchen</span></div><button class="play-btn" onclick="speak('Kitchen', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Baño</span><span class="english">Bathroom</span></div><button class="play-btn" onclick="speak('Bathroom', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Mesa</span><span class="english">Table</span></div><button class="play-btn" onclick="speak('Table', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Cama</span><span class="english">Bed</span></div><button class="play-btn" onclick="speak('Bed', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+            </div>
+        </section>
+
+        <section id="lesson-vocab-food" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Vocabulario: Comida</h2>
+            <div class="vocab-list">
+                <div class="word-card"><div class="word-content"><span class="spanish">Agua</span><span class="english">Water</span></div><button class="play-btn" onclick="speak('Water', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Pan</span><span class="english">Bread</span></div><button class="play-btn" onclick="speak('Bread', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Café</span><span class="english">Coffee</span></div><button class="play-btn" onclick="speak('Coffee', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Pollo</span><span class="english">Chicken</span></div><button class="play-btn" onclick="speak('Chicken', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Desayuno</span><span class="english">Breakfast</span></div><button class="play-btn" onclick="speak('Breakfast', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+            </div>
+        </section>
+
+        <section id="lesson-vocab-family" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Vocabulario: Familia</h2>
+            <div class="vocab-list">
+                <div class="word-card"><div class="word-content"><span class="spanish">Mamá</span><span class="english">Mother / Mom</span></div><button class="play-btn" onclick="speak('Mom', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Papá</span><span class="english">Father / Dad</span></div><button class="play-btn" onclick="speak('Dad', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Hijo (hombre)</span><span class="english">Son</span></div><button class="play-btn" onclick="speak('Son', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Hija (mujer)</span><span class="english">Daughter</span></div><button class="play-btn" onclick="speak('Daughter', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Abuela</span><span class="english">Grandmother</span></div><button class="play-btn" onclick="speak('Grandmother', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Abuelo</span><span class="english">Grandfather</span></div><button class="play-btn" onclick="speak('Grandfather', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+            </div>
+        </section>
+
+        <section id="lesson-vocab-colors" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Vocabulario: Colores</h2>
+            <div class="vocab-list">
+                <div class="word-card" style="border-left: 10px solid red;"><div class="word-content"><span class="spanish">Rojo</span><span class="english">Red</span></div><button class="play-btn" onclick="speak('Red', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card" style="border-left: 10px solid blue;"><div class="word-content"><span class="spanish">Azul</span><span class="english">Blue</span></div><button class="play-btn" onclick="speak('Blue', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card" style="border-left: 10px solid green;"><div class="word-content"><span class="spanish">Verde</span><span class="english">Green</span></div><button class="play-btn" onclick="speak('Green', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card" style="border-left: 10px solid yellow;"><div class="word-content"><span class="spanish">Amarillo</span><span class="english">Yellow</span></div><button class="play-btn" onclick="speak('Yellow', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card" style="border-left: 10px solid black;"><div class="word-content"><span class="spanish">Negro</span><span class="english">Black</span></div><button class="play-btn" onclick="speak('Black', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card" style="border-left: 10px solid #ddd;"><div class="word-content"><span class="spanish">Blanco</span><span class="english">White</span></div><button class="play-btn" onclick="speak('White', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+            </div>
+        </section>
+
+        <!-- =================== Nivel 3: Intermedio y Gramática =================== -->
+
+        <section id="lesson-verbs" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Verbos Principales (Acciones)</h2>
+            <p class="lesson-intro">Los verbos son acciones. Aquí tienes algunos de los más importantes:</p>
+            <div class="vocab-list">
+                <div class="word-card"><div class="word-content"><span class="spanish">Ir</span><span class="english">Go</span></div><button class="play-btn" onclick="speak('Go', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Tener</span><span class="english">Have</span></div><button class="play-btn" onclick="speak('Have', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Querer</span><span class="english">Want</span></div><button class="play-btn" onclick="speak('Want', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Hacer</span><span class="english">Do / Make</span></div><button class="play-btn" onclick="speak('Do. Make.', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Ver / Mirar</span><span class="english">See / Look</span></div><button class="play-btn" onclick="speak('See. Look.', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Necesitar</span><span class="english">Need</span></div><button class="play-btn" onclick="speak('Need', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Trabajar</span><span class="english">Work</span></div><button class="play-btn" onclick="speak('Work', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+            </div>
+        </section>
+
+        <section id="lesson-transversal-tenses" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Tiempos Transversales</h2>
+            <h3 class="section-title">Presente</h3>
+            <div class="table-responsive mb-4">
+                <table class="grammar-table">
+                    <thead><tr><th class="th-present">Persona</th><th class="th-present">TO BE</th><th class="th-present">DO / DOES</th><th class="th-present">DON'T / DOESN'T</th></tr></thead>
+                    <tbody>
+                        <tr><td class="pronoun">I</td><td>am</td><td>do</td><td>don't</td></tr>
+                        <tr><td class="pronoun">You</td><td>are</td><td>do</td><td>don't</td></tr>
+                        <tr><td class="pronoun">He</td><td>is</td><td>does</td><td>doesn't</td></tr>
+                        <tr><td class="pronoun">She</td><td>is</td><td>does</td><td>doesn't</td></tr>
+                        <tr><td class="pronoun">It</td><td>is</td><td>does</td><td>doesn't</td></tr>
+                        <tr><td class="pronoun">We</td><td>are</td><td>do</td><td>don't</td></tr>
+                        <tr><td class="pronoun">They</td><td>are</td><td>do</td><td>don't</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="section-title">Pasado</h3>
+            <div class="table-responsive">
+                <table class="grammar-table">
+                    <thead><tr><th class="th-past">Persona</th><th class="th-past">TO BE</th><th class="th-past">DID</th><th class="th-past">DIDN'T</th></tr></thead>
+                    <tbody>
+                        <tr><td class="pronoun">I</td><td>was</td><td>did</td><td>didn't</td></tr>
+                        <tr><td class="pronoun">You</td><td>were</td><td>did</td><td>didn't</td></tr>
+                        <tr><td class="pronoun">He</td><td>was</td><td>did</td><td>didn't</td></tr>
+                        <tr><td class="pronoun">She</td><td>was</td><td>did</td><td>didn't</td></tr>
+                        <tr><td class="pronoun">It</td><td>was</td><td>did</td><td>didn't</td></tr>
+                        <tr><td class="pronoun">We</td><td>were</td><td>did</td><td>didn't</td></tr>
+                        <tr><td class="pronoun">They</td><td>were</td><td>did</td><td>didn't</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="lesson-connectors" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Conexiones (Conectores)</h2>
+            <p class="lesson-intro">Estas palabras te ayudan a unir tus ideas para formar oraciones largas.</p>
+            <div class="vocab-list">
+                <div class="word-card"><div class="word-content"><span class="spanish">Y (une dos cosas)</span><span class="english">And</span><span class="pronunciation">/and/</span></div><button class="play-btn" onclick="speak('And', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Pero (una excepción)</span><span class="english">But</span><span class="pronunciation">/bat/</span></div><button class="play-btn" onclick="speak('But', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">Porque (da una razón)</span><span class="english">Because</span><span class="pronunciation">/bi-cós/</span></div><button class="play-btn" onclick="speak('Because', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+                <div class="word-card"><div class="word-content"><span class="spanish">O (da una opción)</span><span class="english">Or</span><span class="pronunciation">/or/</span></div><button class="play-btn" onclick="speak('Or', this)"><i class="fa-solid fa-volume-high"></i></button></div>
+            </div>
+            <div class="info-box mt-4">
+                <h4>💡 Ejemplo:</h4>
+                <p>I want coffee <strong>AND</strong> bread. (Quiero café y pan).</p>
+                <p>I like blue <strong>BUT</strong> I don't like black. (Me gusta el azul pero no me gusta el negro).</p>
+            </div>
+        </section>
+
+        <!-- =================== Nivel 4: Historias y Enunciados =================== -->
+
+        <section id="lesson-sentences" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Práctica: Construir Enunciados</h2>
+            <p class="lesson-intro">Aquí aplicamos todo lo aprendido (Pronombres + Verbos + Vocabulario).</p>
+            <div class="vocab-list">
+                <div class="word-card phrase-card">
+                    <div class="word-content">
+                        <span class="spanish">Yo quiero agua.</span>
+                        <span class="english">I want water.</span>
+                    </div>
+                    <button class="play-btn" onclick="speak('I want water.', this)"><i class="fa-solid fa-volume-high"></i></button>
+                </div>
+                <div class="word-card phrase-card">
+                    <div class="word-content">
+                        <span class="spanish">Él es mi hijo.</span>
+                        <span class="english">He is my son.</span>
+                    </div>
+                    <button class="play-btn" onclick="speak('He is my son.', this)"><i class="fa-solid fa-volume-high"></i></button>
+                </div>
+                <div class="word-card phrase-card">
+                    <div class="word-content">
+                        <span class="spanish">Tú no tienes café.</span>
+                        <span class="english">You don't have coffee.</span>
+                    </div>
+                    <button class="play-btn" onclick="speak('You don\'t have coffee.', this)"><i class="fa-solid fa-volume-high"></i></button>
+                </div>
+                <div class="word-card phrase-card">
+                    <div class="word-content">
+                        <span class="spanish">Yo necesito trabajar.</span>
+                        <span class="english">I need to work.</span>
+                    </div>
+                    <button class="play-btn" onclick="speak('I need to work.', this)"><i class="fa-solid fa-volume-high"></i></button>
+                </div>
+                <div class="word-card phrase-card">
+                    <div class="word-content">
+                        <span class="spanish">La casa es azul.</span>
+                        <span class="english">The house is blue.</span>
+                    </div>
+                    <button class="play-btn" onclick="speak('The house is blue.', this)"><i class="fa-solid fa-volume-high"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="lesson-story" class="view">
+            <button class="back-btn" onclick="goHome()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            <h2 class="lesson-title">Lectura: Un Buen Día</h2>
+            <p class="lesson-intro">Lee la siguiente historia usando las palabras que ya aprendiste. Haz clic en "Escuchar Todo" para oírla completa.</p>
+            
+            <div class="story-box">
+                <button class="play-btn large-play" onclick="speak('Hello. My name is Bety. I am happy today. I am in my house. I want bread and coffee for breakfast. Because bread is good. I have a big family. I love my family.', this)"><i class="fa-solid fa-volume-high"></i> Escuchar Todo</button>
+                
+                <div class="story-line">
+                    <p class="en">Hello. My name is Bety.</p>
+                    <p class="es">Hola. Mi nombre es Bety.</p>
+                </div>
+                <div class="story-line">
+                    <p class="en">I am happy today.</p>
+                    <p class="es">Yo estoy feliz hoy.</p>
+                </div>
+                <div class="story-line">
+                    <p class="en">I am in my house.</p>
+                    <p class="es">Yo estoy en mi casa.</p>
+                </div>
+                <div class="story-line">
+                    <p class="en">I want bread and coffee for breakfast.</p>
+                    <p class="es">Yo quiero pan y café para el desayuno.</p>
+                </div>
+                <div class="story-line">
+                    <p class="en">Because bread is good.</p>
+                    <p class="es">Porque el pan es bueno.</p>
+                </div>
+                <div class="story-line">
+                    <p class="en">I have a big family. I love my family.</p>
+                    <p class="es">Yo tengo una familia grande. Amo a mi familia.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Success animation overlay -->
+    <div class="celebration" id="celebration">
+        <h2>¡Muy bien, Bety! 🎉</h2>
+        <i class="fa-solid fa-star fa-beat text-yellow"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
